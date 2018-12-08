@@ -1,0 +1,21 @@
+{
+  "rules": {
+    "block-closing-brace-space-before": "always-single-line",
+    "block-opening-brace-space-after": "always-single-line",
+    "block-no-empty": true,
+    "color-no-invalid-hex": true,
+    "comment-no-empty": true,
+    "declaration-block-no-duplicate-properties": true,
+    "declaration-block-semicolon-newline-after": "always-multi-line",
+    "declaration-block-semicolon-space-after": "always-single-line",
+    "declaration-block-trailing-semicolon": "always",
+    "declaration-colon-space-after": "always",
+    "indentation": 2,
+    "max-empty-lines": 2,
+    "no-extra-semicolons": true,
+    "no-invalid-double-slash-comments": true,
+    "string-quotes": "single",
+    "unit-no-unknown": true,
+    "unit-whitelist": ["deg", "em", "rem", "%", "px", "s", "vh", "vw"]
+  }
+}

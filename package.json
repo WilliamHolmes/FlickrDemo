@@ -1,0 +1,71 @@
+{
+  "name": "Flikr_Search_Demo",
+  "version": "0.0.0",
+  "description": "A Photo Search Web Application based on the Flickr APIs",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && cross-env MODE=production BABEL_ENV=production webpack --config config/webpack.config.js",
+    "clean": "rimraf dist",
+    "server": "serve -s dist",
+    "start:dev": "cross-env MODE=development BABEL_ENV=development webpack-dev-server --config config/webpack.config.js --progress --hot",
+    "start:prod": "npm run build && webpack-dev-server --config config/webpack.devserver.prod.js",
+    "start:prod-server": "npm run build && npm run server",
+    "test": "test",
+    "webpack-analyzer": "cross-env MODE=production BABEL_ENV=production webpack --config config/webpack.analyzer.js --progress"
+  },
+  "author": {
+    "name": "William Holmes",
+    "email": "holmes.william@gmail.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": "8.x",
+    "npm": "5.x"
+  },
+  "devDependencies": {
+    "@babel/core": "7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "7.2.0",
+    "@babel/polyfill": "7.0.0",
+    "@babel/preset-env": "7.2.0",
+    "@babel/preset-react": "7.0.0",
+    "acorn": "6.0.4",
+    "autoprefixer": "9.4.2",
+    "babel-eslint": "8.2.6",
+    "babel-loader": "8.0.4",
+    "case-sensitive-paths-webpack-plugin": "2.1.2",
+    "cross-env": "5.2.0",
+    "css-loader": "1.0.1",
+    "dotenv-webpack": "1.5.7",
+    "eslint": "4.19.1",
+    "eslint-loader": "2.1.1",
+    "eslint-plugin-react": "7.11.1",
+    "html-webpack-plugin": "3.2.0",
+    "mini-css-extract-plugin": "0.4.5",
+    "node-sass": "4.10.0",
+    "postcss-loader": "^3.0.0",
+    "react-hot-loader": "4.3.12",
+    "rimraf": "2.6.2",
+    "sass-loader": "7.1.0",
+    "serve": "10.1.1",
+    "style-loader": "0.23.1",
+    "stylelint": "8.4.0",
+    "stylelint-webpack-plugin": "0.10.5",
+    "url-loader": "1.1.2",
+    "webpack": "4.27.1",
+    "webpack-bundle-analyzer": "3.0.3",
+    "webpack-cli": "3.1.2",
+    "webpack-dev-server": "3.1.10"
+  },
+  "dependencies": {
+    "@material-ui/core": "3.6.1",
+    "@material-ui/icons": "3.0.1",
+    "date-fns": "^1.29.0",
+    "flickr-sdk": "^3.7.0",
+    "prop-types": "15.6.2",
+    "react": "16.6.3",
+    "react-dom": "16.6.3",
+    "react-masonry-responsive": "^2.1.1",
+    "react-resize-detector": "^3.2.1",
+    "underscore": "1.9.1"
+  }
+}

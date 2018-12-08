@@ -1,0 +1,37 @@
+body {
+  min-width: 302px;
+}
+
+.loadingSpinner {
+  height: 40px;
+  left: 50%;
+  margin-left: -20px;
+  margin-top: -20px;
+  position: absolute;
+  top: 50%;
+  width: 40px;
+}
+
+.noResultsContainer {
+  margin: 0 auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  margin-top: 50px;
+  text-align: center;
+  h5 {
+    margin-bottom: 10px;
+  }
+}
+
+.photosContainer {
+  margin-top: 20px;
+  position: relative;
+  transition: all 0.2s ease-in;
+  &.inactive {
+    filter: grayscale(100%);
+    opacity: 0.5;
+  }
+}
