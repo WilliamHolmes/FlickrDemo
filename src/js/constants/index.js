@@ -25,3 +25,7 @@ export const Flikr = {
 export const Search = {
   THROTTLE_DELAY: 200
 };
+
+export const Scroll = {
+  THROTTLE_DELAY: 300
+};

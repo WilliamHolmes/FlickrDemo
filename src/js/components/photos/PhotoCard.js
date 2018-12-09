@@ -105,6 +105,12 @@ class PhotoCard extends Component {
     this.setState(state => ({ expanded: !state.expanded }));
   }
 
+  openImage = url => {
+    const win = window.open('');
+    win.opener = null;
+    win.location = url;
+  }
+
   render() {
     const { photo, classes } = this.props;
     const { id, iconurls: { default: avatarURL } = {}, datetaken, farm, owner, ownername = '', secret, server, tags = '', title }  = photo;

@@ -5,7 +5,7 @@ import _ from 'underscore';
 import Header from './components/Header';
 import ResultsContainer from './components/ResultsContainer';
 
-import { Search } from './constants';
+import { Scroll, Search } from './constants';
 
 import SearchContext, { DEFAULT_STATE } from './context/SearchContext'
 
@@ -19,6 +19,15 @@ class App extends Component {
     };
     _.bindAll(this, 'handleSearch', 'handleScroll');
     this.handleSearchThrottle = _.throttle(e => this.handleSearch(e), Search.THROTTLE_DELAY, { leading: false });
+    this.handleScrollhrottle = _.throttle(e => this.handleScroll(e), Scroll.THROTTLE_DELAY, { leading: false });
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScrollhrottle);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScrollhrottle);
   }
 
   clearResults() {
