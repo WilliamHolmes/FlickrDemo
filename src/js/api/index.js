@@ -13,8 +13,9 @@ export default {
           text,
           ...options
         });
-        const { body: { photos: { photo } } } = data;
-        return photo;
+        console.log('FLIKR response', data);
+        const { body: { photos } } = data;
+        return photos;
       } catch(e) {
         console.error('[ERROR]', e);
         return [];

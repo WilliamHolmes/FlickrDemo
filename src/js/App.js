@@ -18,7 +18,7 @@ class App extends Component {
       ...DEFAULT_STATE
     };
     _.bindAll(this, 'handleSearch', 'handleScroll');
-    this.handleSearchThrottle = _.throttle(e => this.handleSearch(e), Search.THROTTLE_DELAY, { leading: false });
+    this.handleSearchThrottle = _.throttle(e => this.handleSearch(e), Search.THROTTLE_DELAY);
     this.handleScrollhrottle = _.throttle(e => this.handleScroll(e), Scroll.THROTTLE_DELAY, { leading: false });
   }
 
@@ -35,10 +35,11 @@ class App extends Component {
   }
 
   searchPhotos(searchTerm, options) {
+    console.log('App -> searchPhotos -> searchTerm, options', searchTerm, options)
     this.setState({ ...options, searchTerm, inProgress: true }, async () => {
-      const photos = await API.photos.search(searchTerm, options);
+      const { photo: allPhotos, pages } = await API.photos.search(searchTerm, options);
       if (_.isEqual(searchTerm, this.state.searchTerm)) {
-        this.setState({ allPhotos: photos, inProgress: false });
+        this.setState({ allPhotos, pages, inProgress: false });
       }
     });
   }
@@ -57,7 +58,7 @@ class App extends Component {
   }
 
   handleScroll() {
-    console.log('handleScroll');
+    console.log('handleScroll', this.state);
   }
 
   render() {
