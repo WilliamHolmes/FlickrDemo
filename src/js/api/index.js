@@ -1,19 +1,21 @@
-import FlikrSDK from 'flickr-sdk';
+import FlickrSDK from 'flickr-sdk';
 
-import { Flikr } from '../constants';
+import { Flickr } from '../constants';
 
-const API = new FlikrSDK('05bce0f48defa09d59e60dce96dc97ff');
+console.log('process', process.env);
+
+const API = new FlickrSDK('05bce0f48defa09d59e60dce96dc97ff');
 
 export default {
   photos: {
     search: async (text, options) => {
       try {
         const data = await API.photos.search({
-          ...Flikr.ARGS,
+          ...Flickr.ARGS,
           text,
           ...options
         });
-        console.log('FLIKR response', data);
+        console.log('FLICKR response', data);
         const { body: { photos } } = data;
         return photos;
       } catch(e) {

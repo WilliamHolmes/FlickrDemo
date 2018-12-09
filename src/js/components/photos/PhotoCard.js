@@ -139,7 +139,13 @@ class PhotoCard extends Component {
           aria-expanded={this.state.expanded}
           aria-label={'Show more'}
         >
-          <Tooltip enterDelay={200} leaveDelay={200} classes={{ tooltip: classes.lightTooltip }} title={`${this.state.expanded ? 'Hide Tags' : 'Show Tags'}`} placement={'top'}>
+          <Tooltip
+            enterDelay={200}
+            leaveDelay={200}
+            classes={{ tooltip: classes.lightTooltip }}
+            title={`${this.state.expanded ? Strings.tags.HIDE : Strings.tags.SHOW}`}
+            placement={'top'}
+          >
             <ExpandMoreIcon />
           </Tooltip>
         </IconButton>
@@ -147,7 +153,7 @@ class PhotoCard extends Component {
     }
 
     const imageURL = _.template(Strings.templates.PHOTO_URL)({ farm, server, id, secret })
-    const flikrURL = _.template(Strings.templates.FLIKR_URL)({ id, owner });
+    const flickrURL = _.template(Strings.templates.FLICKR_URL)({ id, owner });
 
     return (
       <Card key={id} className={classes.card}>
@@ -161,7 +167,9 @@ class PhotoCard extends Component {
           title={ownername}
           subheader={`${formatDate(new Date(datetaken), 'MMMM D, YYYY')}`}
           action={(
-            <IconButton><LinkIcon onClick={() => this.openImage(flikrURL)} /></IconButton>
+            <IconButton>
+              <LinkIcon onClick={() => this.openImage(flickrURL)} />
+            </IconButton>
           )}
         />
         <CardMedia

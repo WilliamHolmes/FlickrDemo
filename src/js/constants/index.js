@@ -6,14 +6,18 @@ export const Strings = {
     SEARCH: 'Tag...'
   },
   templates: {
-    FLIKR_URL: 'https://www.flickr.com/photos/<%= owner %>/<%= id %>',
+    FLICKR_URL: 'https://www.flickr.com/photos/<%= owner %>/<%= id %>',
     NO_RESULTS: 'Oops! There are no matches for "<%= searchTerm %>"',
     PHOTO_URL: 'https://farm<%= farm %>.staticflickr.com/<%= server %>/<%= id %>_<%= secret %>.jpg',
     SEARCH_AGAIN: 'Please try broadening your search.'
+  },
+  tags: {
+    HIDE: 'Hide tags',
+    SHOW: 'Show tags'
   }
 }
 
-export const Flikr = {
+export const Flickr = {
   ARGS: {
     extras: 'icon_urls_deep,tags,description,date_taken,owner_name',
     per_page: '20',
@@ -27,5 +31,5 @@ export const Search = {
 };
 
 export const Scroll = {
-  THROTTLE_DELAY: 300
+  THROTTLE_DELAY: 400
 };

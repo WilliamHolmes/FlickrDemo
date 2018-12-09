@@ -22,14 +22,6 @@ class App extends Component {
     this.handleScrollhrottle = _.throttle(e => this.handleScroll(e), Scroll.THROTTLE_DELAY, { leading: false });
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScrollhrottle);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScrollhrottle);
-  }
-
   clearResults() {
     this.setState({ ...DEFAULT_STATE });
   }
@@ -43,6 +35,17 @@ class App extends Component {
       }
     });
   }
+
+  searchMorePhotos() {
+    this.setState({ inProgress: true }, async () => {
+      const { allPhotos: currentPhotos, searchTerm, page: currentPage } = this.state;
+      const page = (currentPage + 1);
+      const { photo, pages } = await API.photos.search(searchTerm, { page });
+      const allPhotos = _.union(currentPhotos, photo)
+      this.setState({ allPhotos, pages, page, inProgress: false });
+    })
+  }
+
 
   handleSearch(e) {
     const { value = '' } = e.target;
@@ -58,14 +61,18 @@ class App extends Component {
   }
 
   handleScroll() {
-    console.log('handleScroll', this.state);
+    console.log('handleScroll');
+    const { inProgress, page, pages } = this.state;
+    if (!inProgress && (pages && pages > page)) {
+      this.searchMorePhotos();
+    }
   }
 
   render() {
     const contextValue = {
       ... this.state,
       handleSearch: this.handleSearchThrottle,
-      handleScroll: this.handleScroll
+      handleScroll: this.handleScrollhrottle
     };
 
     return (

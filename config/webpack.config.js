@@ -1,8 +1,6 @@
 const autoPrefixer = require('autoprefixer');
 const path = require('path');
-const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
-const _ = require('underscore');
 
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -62,6 +60,7 @@ module.exports = {
   },
   plugins: [
     new Dotenv({
+      path: __dirname + '../.env',
       systemvars: true,
       silent: true
     }),
