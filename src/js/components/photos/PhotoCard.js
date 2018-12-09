@@ -105,7 +105,7 @@ class PhotoCard extends Component {
     this.setState(state => ({ expanded: !state.expanded }));
   }
 
-  openImage = url => {
+  openImage(url) {
     const win = window.open('');
     win.opener = null;
     win.location = url;
