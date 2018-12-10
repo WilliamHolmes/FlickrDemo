@@ -2,7 +2,7 @@
 A Photo Search Web Application based on the Flickr APIs
 
 # Getting started
-Node 8.x + npm 5.X are required to run the application
+Node 10.13.0 + npm 6.4.1 were used to create this application
 
 ## Install Dependencies
 Please install all the required dependencies running the following script:
@@ -38,6 +38,6 @@ The application is available at: http://localhost:8080/
 ```
 
 # TODO
-1. Introduce Infinite Scroll to the photo results.
-2. Add more text-overflow to Material design components
-3. Add Unit Tests
+1. Investigate Flickr API pagination issue.
+2. Material Design Card Title has now overflow.
+3. Unit Tests

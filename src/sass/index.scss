@@ -2,19 +2,29 @@ body {
   min-width: 302px;
 }
 
-@mixin place-center($size: 0){
-  height: ($size)px;
+@mixin place-middle($size: 0) {
+  height: ($size)+px;
+  width: ($size)+px;
   left: 50%;
   margin-left: -($size / 2)+px;
+}
+
+@mixin place-center($size: 0){
+  @include place-middle($size);
   margin-top: -($size / 2)+px;
   position: absolute;
   top: 50%;
-  width: ($size)+px;
 }
 
 .landingImage {
   @include place-center(256);
   opacity: 0.2;
+}
+
+.moreSpinner {
+  @include place-middle(40);
+  position: relative;
+  margin: 20px 0;
 }
 
 .loadingSpinner {
@@ -25,8 +35,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  margin-top: 50px;
-  margin: 0 auto;
+  margin-top: 100px;
   overflow-wrap: break-word;
   text-align: center;
   word-wrap: break-word;

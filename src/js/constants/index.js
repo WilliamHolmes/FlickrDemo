@@ -19,17 +19,13 @@ export const Strings = {
 
 export const Flickr = {
   ARGS: {
-    extras: 'icon_urls_deep,tags,description,date_taken,owner_name',
-    per_page: '20',
-    safe_search: 1,
+    extras: 'icon_urls_deep,tags,date_taken,owner_name',
+    media: 'photos',
+    per_page: 20,
     sort: 'date-taken-desc'
   }
 }
 
 export const Search = {
   THROTTLE_DELAY: 200
-};
-
-export const Scroll = {
-  THROTTLE_DELAY: 400
 };

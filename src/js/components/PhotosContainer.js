@@ -9,12 +9,12 @@ export default class PhotosContainer extends Component {
   render() {
     return (
       <SearchContext.Consumer>
-        {({ inProgress,  handleScroll }) => {
+        {({ inProgress }) => {
           const photosClass = classnames('photosContainer', {
             inactive: inProgress
           });
           return (
-            <div className={photosClass} onScroll={handleScroll}>
+            <div className={photosClass}>
               <Photos />
             </div>
           )

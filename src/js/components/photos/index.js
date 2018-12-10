@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import InfiniteScroll from 'react-infinite-scroller';
 import _ from 'underscore';
-
 import { Masonry } from 'react-masonry-responsive';
+
+import { CircularProgress } from '@material-ui/core';
 
 import PhotoCard from './PhotoCard';
 
@@ -29,10 +31,22 @@ export default class Photos extends Component {
   render() {
     return (
       <SearchContext.Consumer>
-        {({ allPhotos }) => {
+        {({ allPhotos, handleScroll, page, pages }) => {
           const items = this.getPhotosNodes(allPhotos);
+          const hasMore = (pages && pages > page);
+          console.log('items', items);
           return (
-            <Masonry items={items} minColumnWidth={300} />
+            <InfiniteScroll
+              initialLoad={false}
+              key={'infiniteScroll'}
+              pageStart={1}
+              loadMore={handleScroll}
+              hasMore={hasMore}
+              loader={<CircularProgress disableShrink className={'moreSpinner'}/>}
+              useWindow
+            >
+              <Masonry items={items} minColumnWidth={300} />
+            </InfiniteScroll>
           );
         }}
       </SearchContext.Consumer>

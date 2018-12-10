@@ -5,7 +5,8 @@ import _ from 'underscore';
 import Header from './components/Header';
 import ResultsContainer from './components/ResultsContainer';
 
-import { Scroll, Search } from './constants';
+// import { Scroll, Search } from './constants';
+import { Search } from './constants';
 
 import SearchContext, { DEFAULT_STATE } from './context/SearchContext'
 
@@ -19,7 +20,6 @@ class App extends Component {
     };
     _.bindAll(this, 'handleSearch', 'handleScroll');
     this.handleSearchThrottle = _.throttle(e => this.handleSearch(e), Search.THROTTLE_DELAY);
-    this.handleScrollhrottle = _.throttle(e => this.handleScroll(e), Scroll.THROTTLE_DELAY, { leading: false });
   }
 
   clearResults() {
@@ -30,20 +30,21 @@ class App extends Component {
     console.log('App -> searchPhotos -> searchTerm, options', searchTerm, options)
     this.setState({ ...options, searchTerm, inProgress: true }, async () => {
       const { photo: allPhotos, pages } = await API.photos.search(searchTerm, options);
+      console.log('searchPhotos -> searchTerm, pages', searchTerm, pages);
       if (_.isEqual(searchTerm, this.state.searchTerm)) {
         this.setState({ allPhotos, pages, inProgress: false });
       }
     });
   }
 
-  searchMorePhotos() {
-    this.setState({ inProgress: true }, async () => {
-      const { allPhotos: currentPhotos, searchTerm, page: currentPage } = this.state;
-      const page = (currentPage + 1);
-      const { photo, pages } = await API.photos.search(searchTerm, { page });
-      const allPhotos = _.union(currentPhotos, photo)
-      this.setState({ allPhotos, pages, page, inProgress: false });
-    })
+  async searchMorePhotos(page) {
+    const { allPhotos: currentPhotos, searchTerm } = this.state;
+    console.log('App -> searchMorePhotos -> get page', page);
+    const { photo, pages } = await API.photos.search(searchTerm, { page });
+    console.log('searchPhotos -> currentPhotos, photo', currentPhotos, photo);
+    const allPhotos = _.union(currentPhotos, photo)
+    console.log('allPhotos', allPhotos);
+    this.setState({ allPhotos, pages, page, inProgress: false });
   }
 
 
@@ -60,11 +61,11 @@ class App extends Component {
     }
   }
 
-  handleScroll() {
-    console.log('handleScroll');
-    const { inProgress, page, pages } = this.state;
-    if (!inProgress && (pages && pages > page)) {
-      this.searchMorePhotos();
+  handleScroll(page) {
+    const { pages } = this.state;
+    console.log('handleScroll -> get page', page, pages);
+    if ((pages && pages > page)) {
+      this.searchMorePhotos(page);
     }
   }
 
@@ -72,7 +73,7 @@ class App extends Component {
     const contextValue = {
       ... this.state,
       handleSearch: this.handleSearchThrottle,
-      handleScroll: this.handleScrollhrottle
+      handleScroll: this.handleScroll
     };
 
     return (

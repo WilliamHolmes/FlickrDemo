@@ -1,4 +1,5 @@
 import FlickrSDK from 'flickr-sdk';
+import _ from 'underscore';
 
 import { Flickr } from '../constants';
 
@@ -13,7 +14,8 @@ export default {
         const data = await API.photos.search({
           ...Flickr.ARGS,
           text,
-          ...options
+          ...options,
+          reqId: _.now()
         });
         console.log('FLICKR response', data);
         const { body: { photos } } = data;
