@@ -7,8 +7,8 @@ Node 10.13.0 + npm 6.4.1 were used to create this application
 # Fist Steps - Flickr API Key
 1. Open https://www.flickr.com/services/api/
 2. Click on **API Keys**
-3. Authenticate and create your API Copy
-4. Create a `.env` file in the root of the project
+3. Authenticate and create your API Key
+4. Create a `.env` file in the root of this `Flickr Demo` project
 5. Copy your API key inside and save
 ```
 FLICKR_API=API_KEY_HERE
