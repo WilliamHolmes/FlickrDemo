@@ -1,6 +1,6 @@
 {
   "name": "Flickr_Search_Demo",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A Photo Search Web Application based on the Flickr APIs",
   "main": "index.js",
   "scripts": {
