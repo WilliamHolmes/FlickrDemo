@@ -49,7 +49,7 @@ The application is available at: http://localhost:8080/
 
 # Known Issues
 1. Investigate Flickr API pagination issue (Some requests (per page) do not return the requested page size).
-2. Material Design Card Title has now overflow.
+2. Material Design Card Title has no overflow.
 
 # Troubleshooting
 ![image](https://user-images.githubusercontent.com/5538260/49750138-13175d80-fca2-11e8-8526-32da74485fb9.png).   
