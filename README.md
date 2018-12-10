@@ -32,7 +32,6 @@ The application is available at: http://localhost:8080/
     "start:dev": "cross-env MODE=development BABEL_ENV=development webpack-dev-server --config config/webpack.config.js --progress --hot",
     "start:prod": "npm run build && webpack-dev-server --config config/webpack.devserver.prod.js",
     "start:prod-serve": "npm run build && npm run serve",
-    "test": "test",
     "webpack-analyzer": "cross-env MODE=production BABEL_ENV=production webpack --config config/webpack.analyzer.js --progress"
   }
 ```
