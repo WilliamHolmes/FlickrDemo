@@ -1,6 +1,6 @@
 export const Strings = {
   application: {
-    TITLE: 'Frontend Engineer Challenge'
+    TITLE: 'Flickr Photo Search'
   },
   placeholders: {
     SEARCH: 'Tag...'

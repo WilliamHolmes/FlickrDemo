@@ -52,6 +52,9 @@ module.exports = {
       test: /\.(png|gif)$/,
       use: 'url-loader?mimetype=image/png',
       exclude: /node_modules/
+    }, {
+      test: /\.svg$/,
+      loader: 'svg-react-loader'
     }]
   },
   output: {

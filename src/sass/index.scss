@@ -2,25 +2,34 @@ body {
   min-width: 302px;
 }
 
-.loadingSpinner {
-  height: 40px;
+@mixin place-center($size: 0){
+  height: ($size)px;
   left: 50%;
-  margin-left: -20px;
-  margin-top: -20px;
+  margin-left: -($size / 2)+px;
+  margin-top: -($size / 2)+px;
   position: absolute;
   top: 50%;
-  width: 40px;
+  width: ($size)+px;
+}
+
+.landingImage {
+  @include place-center(256);
+  opacity: 0.2;
+}
+
+.loadingSpinner {
+  @include place-center(40);
 }
 
 .noResultsContainer {
-  margin: 0 auto;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
   display: flex;
-  flex-grow: 1;
   flex-direction: column;
+  flex-grow: 1;
   margin-top: 50px;
+  margin: 0 auto;
+  overflow-wrap: break-word;
   text-align: center;
+  word-wrap: break-word;
   h5 {
     margin-bottom: 10px;
   }

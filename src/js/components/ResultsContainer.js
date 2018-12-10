@@ -8,6 +8,8 @@ import SearchContext from '../context/SearchContext';
 import PhotosContainer from './PhotosContainer';
 import NoResults from './NoResults';
 
+import FlickrLogo from '../../img/FlickrLogo.svg';
+
 export default class ResultsContainer extends Component {
   render() {
     return (
@@ -23,6 +25,7 @@ export default class ResultsContainer extends Component {
             }
             return <PhotosContainer />;
           }
+          return <FlickrLogo className={'landingImage'} />
         }}
       </SearchContext.Consumer>
     );
