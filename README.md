@@ -51,5 +51,5 @@ The application is available at: http://localhost:8080/
 2. Material Design Card Title has now overflow.
 
 # Troubleshooting
-![image](https://user-images.githubusercontent.com/5538260/49750138-13175d80-fca2-11e8-8526-32da74485fb9.png) . 
-You May have forgotten to apply your Flickr API key.
+![image](https://user-images.githubusercontent.com/5538260/49750138-13175d80-fca2-11e8-8526-32da74485fb9.png).   
+You May have forgotten to apply your [Flickr API key](https://github.com/WilliamHolmes/FlickrDemo/blob/master/README.md#first-steps---flickr-api-key).
