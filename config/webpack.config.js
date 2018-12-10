@@ -63,9 +63,9 @@ module.exports = {
   },
   plugins: [
     new Dotenv({
-      path: __dirname + '../.env',
+      path: './.env',
       systemvars: true,
-      silent: true
+      silent: false
     }),
     new CaseSensitivePathsPlugin(),
     new HtmlWebpackPlugin({

@@ -3,7 +3,7 @@ import _ from 'underscore';
 
 import { Flickr } from '_constants';
 
-const API = new FlickrSDK('05bce0f48defa09d59e60dce96dc97ff');
+const API = new FlickrSDK(process.env.FLICKR_API);
 
 export default {
   photos: {
