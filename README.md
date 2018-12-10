@@ -4,7 +4,7 @@ A Photo Search Web Application based on the Flickr APIs
 # Getting started
 Node 10.13.0 + npm 6.4.1 were used to create this application  
 
-# Fist Steps - Flickr API Key
+## First Steps - Flickr API Key
 1. Open https://www.flickr.com/services/api/
 2. Click on **API Keys**
 3. Authenticate and create your API Key
@@ -46,6 +46,10 @@ The application is available at: http://localhost:8080/
   }
 ```
 
-# KNOWN ISSUES
+# Known Issues
 1. Investigate Flickr API pagination issue (Some requests (per page) do not return the requested page size).
 2. Material Design Card Title has now overflow.
+
+# Troubleshooting
+![image](https://user-images.githubusercontent.com/5538260/49750138-13175d80-fca2-11e8-8526-32da74485fb9.png) . 
+You May have forgotten to apply your Flickr API key.
