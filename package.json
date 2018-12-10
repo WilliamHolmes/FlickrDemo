@@ -6,10 +6,10 @@
   "scripts": {
     "build": "npm run clean && cross-env MODE=production BABEL_ENV=production webpack --config config/webpack.config.js",
     "clean": "rimraf dist",
-    "server": "serve -s dist",
+    "serve": "serve -s dist",
     "start:dev": "cross-env MODE=development BABEL_ENV=development webpack-dev-server --config config/webpack.config.js --progress --hot",
     "start:prod": "npm run build && webpack-dev-server --config config/webpack.devserver.prod.js",
-    "start:prod-server": "npm run build && npm run server",
+    "start:prod-serve": "npm run build && npm run serve",
     "test": "test",
     "webpack-analyzer": "cross-env MODE=production BABEL_ENV=production webpack --config config/webpack.analyzer.js --progress"
   },
@@ -42,7 +42,7 @@
     "html-webpack-plugin": "3.2.0",
     "mini-css-extract-plugin": "0.4.5",
     "node-sass": "4.10.0",
-    "postcss-loader": "^3.0.0",
+    "postcss-loader": "3.0.0",
     "react-hot-loader": "4.3.12",
     "rimraf": "2.6.2",
     "sass-loader": "7.1.0",
@@ -60,13 +60,13 @@
   "dependencies": {
     "@material-ui/core": "3.6.1",
     "@material-ui/icons": "3.0.1",
-    "date-fns": "^1.29.0",
-    "flickr-sdk": "^3.7.0",
+    "date-fns": "1.29.0",
+    "flickr-sdk": "3.7.0",
     "prop-types": "15.6.2",
     "react": "16.6.3",
     "react-dom": "16.6.3",
-    "react-masonry-responsive": "^2.1.1",
-    "react-resize-detector": "^3.2.1",
+    "react-masonry-responsive": "2.1.1",
+    "react-resize-detector": "3.2.1",
     "underscore": "1.9.1"
   }
 }
