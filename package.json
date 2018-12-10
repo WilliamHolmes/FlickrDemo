@@ -10,7 +10,6 @@
     "start:dev": "cross-env MODE=development BABEL_ENV=development webpack-dev-server --config config/webpack.config.js --progress --hot",
     "start:prod": "npm run build && webpack-dev-server --config config/webpack.devserver.prod.js",
     "start:prod-serve": "npm run build && npm run serve",
-    "test": "test",
     "webpack-analyzer": "cross-env MODE=production BABEL_ENV=production webpack --config config/webpack.analyzer.js --progress"
   },
   "author": {
@@ -65,6 +64,7 @@
     "prop-types": "15.6.2",
     "react": "16.6.3",
     "react-dom": "16.6.3",
+    "react-helmet": "5.2.0",
     "react-infinite-scroll-component": "4.2.0",
     "react-infinite-scroller": "1.2.2",
     "react-masonry-responsive": "2.1.1",

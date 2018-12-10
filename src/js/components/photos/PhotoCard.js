@@ -21,7 +21,7 @@ import { withStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import LinkIcon from '@material-ui/icons/OpenInNew';
 
-import { Strings } from '../../constants';
+import { Strings } from '_constants';
 
 const styles = theme => ({
   lightTooltip: {

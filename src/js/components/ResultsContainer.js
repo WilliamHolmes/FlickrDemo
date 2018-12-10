@@ -3,12 +3,12 @@ import _ from 'underscore';
 
 import { CircularProgress } from '@material-ui/core';
 
-import SearchContext from '../context/SearchContext';
+import SearchContext from '_context/SearchContext';
 
 import PhotosContainer from './PhotosContainer';
 import NoResults from './NoResults';
 
-import FlickrLogo from '../../img/FlickrLogo.svg';
+import FlickrLogo from '_img/FlickrLogo.svg';
 
 export default class ResultsContainer extends Component {
   render() {

@@ -9,9 +9,9 @@ import Typography from '@material-ui/core/Typography';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
 
-import SearchContext from '../context/SearchContext';
+import SearchContext from '_context/SearchContext';
 
-import { Strings } from '../constants';
+import { Strings } from '_constants';
 
 const styles = theme => ({
   root: {

@@ -69,7 +69,12 @@ module.exports = {
     }),
     new CaseSensitivePathsPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/html/index.html'
+      template: './src/html/index.html',
+      favicon: './src/html/favicon.ico',
+      meta: {
+        viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+        charset: 'utf-8'
+      }
     }),
     new MiniCssExtractPlugin({
       filename: isDevMode ? '[name].css' : '[name].[chunkhash].css',

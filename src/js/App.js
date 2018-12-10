@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
+import { Helmet } from 'react-helmet';
 import _ from 'underscore';
 
-import Header from './components/Header';
-import ResultsContainer from './components/ResultsContainer';
+import Header from '_components/Header';
+import ResultsContainer from '_components/ResultsContainer';
 
-// import { Scroll, Search } from './constants';
-import { Search } from './constants';
+import { Strings, Search } from '_constants';
 
-import SearchContext, { DEFAULT_STATE } from './context/SearchContext'
+import SearchContext, { DEFAULT_STATE } from '_context/SearchContext'
 
 import API from './api';
 
@@ -27,10 +27,8 @@ class App extends Component {
   }
 
   searchPhotos(searchTerm, options) {
-    console.log('App -> searchPhotos -> searchTerm, options', searchTerm, options)
     this.setState({ ...options, searchTerm, inProgress: true }, async () => {
       const { photo: allPhotos, pages } = await API.photos.search(searchTerm, options);
-      console.log('searchPhotos -> searchTerm, pages', searchTerm, pages);
       if (_.isEqual(searchTerm, this.state.searchTerm)) {
         this.setState({ allPhotos, pages, inProgress: false });
       }
@@ -39,11 +37,9 @@ class App extends Component {
 
   async searchMorePhotos(page) {
     const { allPhotos: currentPhotos, searchTerm } = this.state;
-    console.log('App -> searchMorePhotos -> get page', page);
     const { photo, pages } = await API.photos.search(searchTerm, { page });
-    console.log('searchPhotos -> currentPhotos, photo', currentPhotos, photo);
-    const allPhotos = _.union(currentPhotos, photo)
-    console.log('allPhotos', allPhotos);
+    const allPhotos = _.union(currentPhotos, photo);
+    console.log('searchMorePhotos -> allPhotos', allPhotos)
     this.setState({ allPhotos, pages, page, inProgress: false });
   }
 
@@ -54,7 +50,7 @@ class App extends Component {
     const { searchTerm } = this.state;
     if (newSearchTerm) {
       if (searchTerm !== newSearchTerm) {
-        this.searchPhotos(newSearchTerm, { page: 1 });
+        this.searchPhotos(newSearchTerm, { pages: null, page: 1 });
       }
     } else {
       this.clearResults();
@@ -63,7 +59,6 @@ class App extends Component {
 
   handleScroll(page) {
     const { pages } = this.state;
-    console.log('handleScroll -> get page', page, pages);
     if ((pages && pages > page)) {
       this.searchMorePhotos(page);
     }
@@ -76,8 +71,11 @@ class App extends Component {
       handleScroll: this.handleScroll
     };
 
+    const { searchTerm = Strings.application.TITLE } = this.state;
+
     return (
       <SearchContext.Provider value={contextValue}>
+        <Helmet title={searchTerm} />
         <Header />
         <ResultsContainer />
       </SearchContext.Provider>

@@ -4,7 +4,7 @@ import _ from 'underscore';
 
 import Typography from '@material-ui/core/Typography';
 
-import { Strings } from '../constants';
+import { Strings } from '_constants';
 
 export default class NoResults extends Component {
   render() {

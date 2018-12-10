@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 import Photos from './photos';
 
-import SearchContext from '../context/SearchContext';
+import SearchContext from '_context/SearchContext';
 
 export default class PhotosContainer extends Component {
   render() {

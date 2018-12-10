@@ -7,7 +7,7 @@ import { CircularProgress } from '@material-ui/core';
 
 import PhotoCard from './PhotoCard';
 
-import SearchContext from '../../context/SearchContext';
+import SearchContext from '_context/SearchContext';
 
 export default class Photos extends Component {
   constructor(props) {
@@ -34,15 +34,14 @@ export default class Photos extends Component {
         {({ allPhotos, handleScroll, page, pages }) => {
           const items = this.getPhotosNodes(allPhotos);
           const hasMore = (pages && pages > page);
-          console.log('items', items);
           return (
             <InfiniteScroll
+              threshold={350}
               initialLoad={false}
-              key={'infiniteScroll'}
               pageStart={1}
               loadMore={handleScroll}
               hasMore={hasMore}
-              loader={<CircularProgress disableShrink className={'moreSpinner'}/>}
+              loader={<CircularProgress key={'loadMoreSpinner'} disableShrink className={'moreSpinner'}/>}
               useWindow
             >
               <Masonry items={items} minColumnWidth={300} />
