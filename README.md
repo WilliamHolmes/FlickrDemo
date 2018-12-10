@@ -27,7 +27,7 @@ npm run start:dev
 ```
 or in production mode using:
 ```
-npm run start:prod
+npm run start
 ```
 
 ## Browse the application
