@@ -36,6 +36,7 @@ The application is available at: http://localhost:8080/
 # Available scripts
 ```json
 "scripts": {
+    "start": "npm run start:prod",
     "build": "npm run clean && cross-env MODE=production BABEL_ENV=production webpack --config config/webpack.config.js",
     "clean": "rimraf dist",
     "serve": "serve -s dist",
