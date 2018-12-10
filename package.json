@@ -18,8 +18,8 @@
   },
   "license": "MIT",
   "engines": {
-    "node": "8.x",
-    "npm": "5.x"
+    "node": "10.x",
+    "npm": "6.x"
   },
   "devDependencies": {
     "@babel/core": "7.2.0",
