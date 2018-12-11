@@ -28,7 +28,7 @@ class App extends Component {
 
   searchPhotos(searchTerm, options) {
     this.setState({ ...options, searchTerm, inProgress: true }, async () => {
-      const { photo: allPhotos, pages } = await API.photos.search(searchTerm, options);
+      const { photo: allPhotos, pages } = await API.photos.search(searchTerm, { page: options.page });
       if (_.isEqual(searchTerm, this.state.searchTerm)) {
         this.setState({ allPhotos, pages, inProgress: false });
       }
