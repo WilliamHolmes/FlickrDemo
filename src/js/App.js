@@ -59,7 +59,7 @@ class App extends Component {
 
   handleScroll(page) {
     const { pages } = this.state;
-    if ((pages && pages > page)) {
+    if (pages && (pages >= page)) {
       this.searchMorePhotos(page);
     }
   }
