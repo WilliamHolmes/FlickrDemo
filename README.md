@@ -48,7 +48,8 @@ The application is available at: http://localhost:8080/
 ```
 
 # Known Issues
-1. Investigate Flickr API pagination issue (Some requests (per page) do not return the requested page size).
+1. Investigate Flickr API pagination issue (Some requests (per page) do not return the requested page size).  
+  1.1 [Test Flickr API Issue](https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=1b06488879b3bb6d948f9009a7580bb5&text=dogs&sort=date-taken-desc&extras=icon_urls_deep%2Ctags%2Cdate_taken%2Cowner_name&per_page=20&page=2&format=json&nojsoncallback=1)
 2. Material Design Card Title has no overflow.
 
 # Troubleshooting
